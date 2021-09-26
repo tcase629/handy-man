@@ -11,7 +11,7 @@ class Api::WorkersController < ApplicationController
 	end
 
 	def show
-		@worker = Worker.find([:id])
+		@worker = Worker.find(params[:id])
 		render json: @worker
 	end
 
@@ -26,7 +26,7 @@ end
 
 	def update
 		@worker = Worker.find(params[:id])
-		if @worker.save
+		if @worker.update(worker_params)
 			render json: @worker
 		else
 			render json: { errors: @worker.errors }, status: :unprocessable_entity
@@ -43,9 +43,6 @@ end
 		def worker_params
 			params.require(:worker).permit(:name, :speciality, :phone)
 		end
-
-
-
 end
 
 
