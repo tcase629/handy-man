@@ -4,7 +4,7 @@ class Api::ServicesController < ApplicationController
 	end
 
 	def show
-		@service = @worker.services.find([:id])
+		@service = @worker.services.find(params[:id])
 		render json: @service
 	end
 
