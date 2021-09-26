@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     end
     
     resources :services do
-      resources :comments
+        resources :comments
+    
     end
   end
 end
