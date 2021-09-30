@@ -3,13 +3,13 @@ import axios from 'axios';
 import ServiceList from './ServiceList';
 import ServiceForm from './ServiceForm';
 
-const Services = () => {
+const Services = ({ workerId }) => {
   const [services, setServices] = useState([])
 
   // before it mounts 
   useEffect( () => {
     // grab the todos from the db
-		axios.get(`/api/workers/${worker_id}/services`)
+		axios.get(`/api/workers/${workerId}/services`)
       .then( res => {
         // and set it to state
         setServices(res.data)
@@ -22,7 +22,7 @@ const Services = () => {
     // add in the db
     // add in the state in the client 
     //  { todo: {title: "", complete: false}}
-    axios.post(`/api/workers/${worker_id}/services`, { service })
+    axios.post(`/api/workers/${workerId}/services`, { service })
       .then( res => {
         setServices([...services, res.data])
       })
@@ -33,7 +33,7 @@ const Services = () => {
   const updateServices = (id, service) => {
     // update in the db
     //  { todo: {title: "", complete: false}}
-    axios.put(`/api/workers/${worker_id}/services/${id}`, { service })
+    axios.put(`/api/workers/${workerId}/services/${id}`, { service })
       .then( res => {
         // update in the state in the client 
         const updatedServices = services.map( s => {
@@ -51,7 +51,7 @@ const Services = () => {
   // delete todo 
   const deleteServices = (id) => {
     // delete in the db
-    axios.delete(`/api/workers/${worker_id}/services/${id}`)
+    axios.delete(`/api/workers/${workerId}/services/${id}`)
       .then( res => {
         // delete in the state in the client 
         setServices(services.filter( s => s.id !== id))

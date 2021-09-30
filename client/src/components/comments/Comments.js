@@ -3,13 +3,13 @@ import axios from 'axios';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
 
-const Comments = () => {
+const Comments = ({ serviceId }) => {
   const [comments, setComments] = useState([])
 
   // before it mounts 
   useEffect( () => {
     // grab the todos from the db
-    axios.get(`/api/services/${service_id}/comments`)
+    axios.get(`/api/services/${serviceId}/comments`)
       .then( res => {
         // and set it to state
         setComments(res.data)
@@ -22,7 +22,7 @@ const Comments = () => {
     // add in the db
     // add in the state in the client 
     //  { todo: {title: "", complete: false}}
-    axios.post(`/api/services/${service_id}/comments`)
+    axios.post(`/api/services/${serviceId}/comments`)
       .then( res => {
         setComments([...comments, res.data])
       })
@@ -33,7 +33,7 @@ const Comments = () => {
   const updateComments = (id, comment) => {
     // update in the db
     //  { todo: {title: "", complete: false}}
-    axios.put(`/api/services/${service_id}/comments/${id}`, { comment })
+    axios.put(`/api/services/${serviceId}/comments/${id}`, { comment })
       .then( res => {
         // update in the state in the client 
         const updatedComments = comments.map( c => {
@@ -51,7 +51,7 @@ const Comments = () => {
   // delete todo 
   const deleteComments = (id) => {
     // delete in the db
-    axios.delete(`/api/services/${service_id}/comments/${id}`)
+    axios.delete(`/api/services/${serviceId}/comments/${id}`)
       .then( res => {
         // delete in the state in the client 
         setComments(comments.filter( c => c.id !== id))
@@ -71,4 +71,4 @@ const Comments = () => {
   )
 }
 
-export default Commments;
+export default Comments;

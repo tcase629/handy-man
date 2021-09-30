@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ServiceForm from './ ServiceForm';
+import ServiceForm from './ServiceForm';
 
 const  Service = ({ id, serv_type, cost,  deleteService, updateService }) => {
   const [editing, setEdit] = useState(false)
