@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import WorkerList from './WorkerList';
+import WorkerForm from './WorkerForm';
 
 const Workers = () => {
   const [workers, setWorkers] = useState([])
@@ -22,7 +24,7 @@ const Workers = () => {
     //  { todo: {title: "", complete: false}}
     axios.post('/api/workers', { worker })
       .then( res => {
-        setWorkers([...worker, res.data])
+        setWorkers([...workers, res.data])
       })
       .catch( err => console.log(err))
   }
@@ -34,11 +36,11 @@ const Workers = () => {
     axios.put(`/api/workers/${id}`, { worker })
       .then( res => {
         // update in the state in the client 
-        const updatedWorkers = workers.map( t => {
-          if (t.id == id) {
+        const updatedWorkers = workers.map( w => {
+          if (w.id === id) {
             return res.data
           }
-          return t
+          return w
         })
         setWorkers(updatedWorkers)
       })
@@ -52,14 +54,19 @@ const Workers = () => {
     axios.delete(`/api/workers/${id}`)
       .then( res => {
         // delete in the state in the client 
-        setWorkers(workers.filter( t => t.id !== id))
+        setWorkers(workers.filter( w => w.id !== id))
       })
       .catch( err => console.log(err))
   }
 
   return (
     <>
-
+     <WorkerForm addWorkers={addWorkers} />
+      <WorkerList 
+        workers={workers} 
+        deleteWorkers={deleteWorkers}
+        updateWorkers={updateWorkers}
+        />
     </>
   )
 }
