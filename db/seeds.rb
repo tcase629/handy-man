@@ -6,9 +6,9 @@
   )
 
   2.times do
-    Service.create(
+    @worker.services.create(
       serv_type: Faker::Hobby.activity,
-      worker_id: @worker.id
+      cost: Faker::Commerce.price
     )
   end
 end

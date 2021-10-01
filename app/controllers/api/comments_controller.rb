@@ -14,8 +14,8 @@ class Api::CommentsController < ApplicationController
 			render json: @comment
 		else
 			render json: { errors: @comment.errors }, status: :unprocessable_entity
+		end
 	end
-end
 
 	def update
 		@comment = @service.comments.find(params[:id])
@@ -29,6 +29,7 @@ end
 	def destroy
 		@service.comments.find(params[:id]).destroy
 		render json: { message: 'Comment Deleted'}
+	end
 
 	private 
 		def comment_params

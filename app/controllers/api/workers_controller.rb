@@ -21,8 +21,8 @@ class Api::WorkersController < ApplicationController
 			render json: @worker
 		else
 			render json: { errors: @worker.errors }, status: :unprocessable_entity
+		end
 	end
-end
 
 	def update
 		@worker = Worker.find(params[:id])
@@ -38,6 +38,7 @@ end
 		render json: { message: 'Worker Deleted'}
 
 	end
+	
 	private
 		# { worker: {title: "", complete: false}} we need to keep this in mind because we need to pass that format when we are doing a create
 		def worker_params

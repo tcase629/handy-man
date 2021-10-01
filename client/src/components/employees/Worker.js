@@ -6,6 +6,7 @@ const Worker = ({ id, name, phone, specialty, deleteWorker, updateWorker }) => {
 
   return (
     <>
+      <a href={`/workers/${id}/services`}>link</a>
       <li>
         {name}
         <br />
@@ -45,3 +46,5 @@ const Worker = ({ id, name, phone, specialty, deleteWorker, updateWorker }) => {
 }
 
 export default Worker;
+
+//Could add a link  after the name or form within return statement.

@@ -5,12 +5,13 @@ const WorkerList = ({ workers, deleteWorker, updateWorker }) => {
     <>
       <ul>
         {
-          workers.map( w => 
-            <Worker 
+          workers.map((w) => 
+            
+            (<Worker 
               {...w} 
               deleteWorker={deleteWorker} 
               updateWorker={updateWorker}
-            />
+            />)
           )
         }
       </ul>

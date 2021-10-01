@@ -9,7 +9,7 @@ const MainNavbar = () => {
 			<Nav className="me-auto">
 				<Nav.Link href="/">Home</Nav.Link>
 				<Nav.Link href="/workers">Workers</Nav.Link>
-				<Nav.Link href="/services">Services</Nav.Link>
+				{/* <Nav.Link href="/workers/:id/services">Services</Nav.Link> */}
 			</Nav>
     </Container>
   </Navbar>
@@ -18,3 +18,4 @@ const MainNavbar = () => {
 }
 
 export default MainNavbar;
+

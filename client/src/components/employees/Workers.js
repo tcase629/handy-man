@@ -13,6 +13,7 @@ const Workers = () => {
       .then( res => {
         // and set it to state
         setWorkers(res.data)
+        console.log(res.data)
       })
       .catch( err => console.log(err))
   }, [])
