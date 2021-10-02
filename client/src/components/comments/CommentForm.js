@@ -33,7 +33,7 @@ const CommentForm = ({ addComment, id, title, body,  updateComment, setEdit }) =
           placeholder="Title"
         />
 
-        <input
+        <textarea
           name="body"
           value={comment.body}
           onChange={(e) => setComment({...comment, body: e.target.value})}

@@ -20,7 +20,7 @@ const Services = ({ match }) => {
   }, [])
 
   // add todo
-  const addServices = (service) => {
+  const addService = (service) => {
     // add in the db
     // add in the state in the client 
     //  { todo: {title: "", complete: false}}
@@ -32,7 +32,7 @@ const Services = ({ match }) => {
   }
 
   // update todo
-  const updateServices = (id, service) => {
+  const updateService = (id, service) => {
     // update in the db
     //  { todo: {title: "", complete: false}}
     axios.put(`/api/workers/${id}/services/${id}`, { service })
@@ -51,7 +51,7 @@ const Services = ({ match }) => {
 
 
   // delete todo 
-  const deleteServices = (id) => {
+  const deleteService = (id) => {
     // delete in the db
     axios.delete(`/api/workers/${id}/services/${id}`)
       .then( res => {
@@ -63,11 +63,11 @@ const Services = ({ match }) => {
 
   return (
     <>
-     <ServiceForm addServices={addServices} />
+     <ServiceForm addService={addService} />
       <ServiceList 
         services={services} 
-        deleteServices={deleteServices}
-        updateServices={updateServices}
+        deleteService={deleteService}
+        updateService={updateService}
         />
     </>
   )

@@ -42,7 +42,7 @@ class Api::WorkersController < ApplicationController
 	private
 		# { worker: {title: "", complete: false}} we need to keep this in mind because we need to pass that format when we are doing a create
 		def worker_params
-			params.require(:worker).permit(:name, :speciality, :phone)
+			params.require(:worker).permit(:name, :specialty, :phone)
 		end
 end
 

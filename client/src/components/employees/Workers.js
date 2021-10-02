@@ -19,7 +19,7 @@ const Workers = () => {
   }, [])
 
   // add todo
-  const addWorkers = (worker) => {
+  const addWorker = (worker) => {
     // add in the db
     // add in the state in the client 
     //  { todo: {title: "", complete: false}}
@@ -31,7 +31,7 @@ const Workers = () => {
   }
 
   // update todo
-  const updateWorkers = (id, worker) => {
+  const updateWorker = (id, worker) => {
     // update in the db
     //  { todo: {title: "", complete: false}}
     axios.put(`/api/workers/${id}`, { worker })
@@ -50,7 +50,7 @@ const Workers = () => {
 
 
   // delete todo 
-  const deleteWorkers = (id) => {
+  const deleteWorker = (id) => {
     // delete in the db
     axios.delete(`/api/workers/${id}`)
       .then( res => {
@@ -62,11 +62,11 @@ const Workers = () => {
 
   return (
     <>
-     <WorkerForm addWorkers={addWorkers} />
+     <WorkerForm addWorker={addWorker} />
       <WorkerList 
         workers={workers} 
-        deleteWorkers={deleteWorkers}
-        updateWorkers={updateWorkers}
+        deleteWorker={deleteWorker}
+        updateWorker={updateWorker}
         />
     </>
   )

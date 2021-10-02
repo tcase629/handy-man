@@ -18,7 +18,7 @@ const Comments = ({ serviceId }) => {
   }, [])
 
   // add todo
-  const addComments = (comment) => {
+  const addComment = (comment) => {
     // add in the db
     // add in the state in the client 
     //  { todo: {title: "", complete: false}}
@@ -30,7 +30,7 @@ const Comments = ({ serviceId }) => {
   }
 
   // update todo
-  const updateComments = (id, comment) => {
+  const updateComment = (id, comment) => {
     // update in the db
     //  { todo: {title: "", complete: false}}
     axios.put(`/api/services/${serviceId}/comments/${id}`, { comment })
@@ -49,7 +49,7 @@ const Comments = ({ serviceId }) => {
 
 
   // delete todo 
-  const deleteComments = (id) => {
+  const deleteComment = (id) => {
     // delete in the db
     axios.delete(`/api/services/${serviceId}/comments/${id}`)
       .then( res => {
@@ -61,11 +61,11 @@ const Comments = ({ serviceId }) => {
 
   return (
     <>
-     <CommentForm addComments={addComments} />
+     <CommentForm addComment={addComment} />
       <CommentList 
         comments={comments} 
-        deleteComments={deleteComments}
-        updateComments={updateComments}
+        deleteComment={deleteComment}
+        updateComment={updateComment}
         />
     </>
   )

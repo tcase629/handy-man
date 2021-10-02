@@ -1,11 +1,11 @@
-import Comment from './Comment';
+import Comments from './Comment';
 
 const CommentList = ({ comments, deleteComment, updateComment }) => {
   return (
     <>
       <ul>
         {
-          comments.map( w => 
+          comments.map( c => 
             <Comments 
               {...c} 
               deleteComment={deleteComment} 

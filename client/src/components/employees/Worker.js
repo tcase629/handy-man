@@ -6,11 +6,11 @@ const Worker = ({ id, name, phone, specialty, deleteWorker, updateWorker }) => {
 
   return (
     <>
-      <a href={`/workers/${id}/services`}>link</a>
+      <a href={`/workers/${id}/services`}>Services</a>
       <li>
         {name}
         <br />
-        Name: { name ? "Yes" : "No" }
+        {/* Name: { name ? "Yes" : "No" } */}
         {
           editing ?
           <>

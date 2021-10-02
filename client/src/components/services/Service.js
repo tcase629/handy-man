@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import ServiceForm from './ServiceForm';
+import Comments from '../comments/Comments'
 
 const  Service = ({ id, serv_type, cost,  deleteService, updateService }) => {
   const [editing, setEdit] = useState(false)
 
   return (
     <>
+    <br />
+    <br />
+    <br />
       <li>
         {serv_type}
         <br />
-        Name: { serv_type ? "Yes" : "No" }
+        {/* Name: { serv_type ? "Yes" : "No" } */}
         {
           editing ?
           <>
@@ -33,6 +37,7 @@ const  Service = ({ id, serv_type, cost,  deleteService, updateService }) => {
         }
         <button onClick={() => deleteService(id)}>Delete</button>
       </li>
+      <Comments serviceId={id} />
     </>
   )
 }
