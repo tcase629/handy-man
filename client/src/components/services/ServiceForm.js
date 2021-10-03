@@ -23,6 +23,9 @@ const ServiceForm = ({ addService, id,serv_type, cost,  updateService, setEdit }
 
   return (
     <>
+    <br />
+    <br />
+    <br />
       <form onSubmit={handleSubmit}>
         <input 
           name="serv_type"

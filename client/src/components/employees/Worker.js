@@ -10,28 +10,18 @@ const Worker = ({ id, name, phone, specialty, deleteWorker, updateWorker }) => {
       <li>
         {name}
         <br />
-        {/* Name: { name ? "Yes" : "No" } */}
+        {specialty}
+        <br />
+        {phone}
+        <br />
         {
           editing ?
           <>
             <WorkerForm
               id={id}
-              title={name}
               name={name}
-              updateWorker={updateWorker}
-              setEdit={setEdit}
-            />
-            <WorkerForm
-              id={id}
-              title={specialty}
-              name={specialty}
-              updateWorker={updateWorker}
-              setEdit={setEdit}
-            />
-            <WorkerForm
-              id={id}
-              title={phone}
-              name={phone}
+              phone={phone}
+              specialty={specialty}
               updateWorker={updateWorker}
               setEdit={setEdit}
             />

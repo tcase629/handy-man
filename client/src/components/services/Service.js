@@ -8,26 +8,18 @@ const  Service = ({ id, serv_type, cost,  deleteService, updateService }) => {
   return (
     <>
     <br />
-    <br />
-    <br />
       <li>
         {serv_type}
         <br />
-        {/* Name: { serv_type ? "Yes" : "No" } */}
+        {cost}
+        <br />
         {
           editing ?
           <>
             <ServiceForm
               id={id}
-              title={serv_type}
-              name={serv_type}
-              updateService={updateService}
-              setEdit={setEdit}
-            />
-            <ServiceForm
-              id={id}
-              title={cost}
-              name={cost}
+              serv_type={serv_type}
+              cost={cost}
               updateService={updateService}
               setEdit={setEdit}
             />
