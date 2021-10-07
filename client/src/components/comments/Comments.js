@@ -22,7 +22,7 @@ const Comments = ({ serviceId }) => {
     // add in the db
     // add in the state in the client 
     //  { todo: {title: "", complete: false}}
-    axios.post(`/api/services/${serviceId}/comments`)
+    axios.post(`/api/services/${serviceId}/comments`, { comment })
       .then( res => {
         setComments([...comments, res.data])
       })
